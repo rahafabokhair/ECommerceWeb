@@ -50,15 +50,6 @@ export class AuthService {
   register(user: User) {
     return this.apiService.post(this.auth_url + 'register', user);
   }
-  // loggedin() {
-  //   if (isPlatformBrowser(this.platformId)) {
-  //     const token = localStorage.getItem('token');
-  //     const returnedtoken=token != null && !this.jwtHelper.isTokenExpired(token);
-  //     this.setDecodedToken(returnedtoken);
-  //     return token != null && !this.jwtHelper.isTokenExpired(token);
-  //   }
-  //   return false;
-  // }
 
 
   loggedin() {
