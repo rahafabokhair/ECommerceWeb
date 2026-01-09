@@ -38,4 +38,4 @@ git clone https://github.com/rahafabokhair/ECommerceWeb
 
 ### 5. Usage
 Kindly read the documentation part
-https://docs.google.com/document/d/1tTiok6TzCIwrLpc5d4_ctuOGGFw1Ojm-c8bWRdFS5YY/edit?usp=sharing
+https://docs.google.com/document/d/127tN_R-uxWgtt-li5i_booFcZxCIa540xQGoFqQur7A/edit?usp=sharing
