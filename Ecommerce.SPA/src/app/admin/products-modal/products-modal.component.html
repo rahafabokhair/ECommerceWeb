@@ -1,0 +1,167 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">
+    {{ isEdit ? "Add" : "Edit" }} Product: {{ product.name }}
+  </h4>
+  <button
+    type="button"
+    class="btn-close close pull-right"
+    aria-label="Close"
+    (click)="bsModalRef.hide()"
+  >
+    <span aria-hidden="true" class="visually-hidden">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form #productForm="ngForm" id="productForm">
+    <div class="form-group first t-right col_w">
+      <label for="name"> name </label>
+      <input
+        class="form-control me-2"
+        type="text"
+        name="name"
+        placeholder="Name"
+        [(ngModel)]="product.name"
+        required
+      />
+    </div>
+    <div class="form-group first t-right col_w">
+      <label for="price"> price </label>
+      <input
+        class="form-control me-2"
+        type="text"
+        name="price"
+        placeholder="price"
+        [(ngModel)]="product.price"
+        required
+      />
+    </div>
+    <div class="form-group first t-right col_w">
+      <label for="brand"> brand </label>
+      <input
+        class="form-control me-2"
+        type="text"
+        name="brand"
+        placeholder="brand"
+        [(ngModel)]="product.brand"
+        required
+      />
+    </div>
+    <!-- <div class="form-group first t-right col_w">
+      <label for="photoUrl"> photoUrl </label>
+      <input
+        class="form-control me-2"
+        type="text"
+        name="photoUrl"
+        placeholder="photoUrl"
+        [(ngModel)]="product.photoURL"
+        required
+      />
+    </div> -->
+
+    <!-- <div class="col-12 image-upload">
+      <label for="photoUrl" class="mb-0" style="display: ruby">
+        
+        <div
+          class="profile-pic mb-1"
+          [ngStyle]="{ backgroundImage: getImage() }"
+        ></div>
+        <i class="fa fa-plus pro-icon"></i>
+      </label>
+      <input
+        class="form-control me-2"
+        type="File"
+        id="photoUrl"
+        name="photoUrl"
+        placeholder="photoUrl"
+        [(ngModel)]="product.photoUrl"
+        (change)="onFileSelected($event)"
+      />
+    </div> -->
+
+    <div class="form-group first t-right col_w">
+      <label for="description"> Description </label>
+      <textarea
+        class="form-control"
+        name="description"
+        rows="6"
+        [(ngModel)]="product.description"
+      >
+      </textarea>
+    </div>
+    <div class="form-group first t-right col_w">
+      <label for="specification"> specification </label>
+      <textarea
+        class="form-control"
+        name="specification"
+        rows="6"
+        [(ngModel)]="product.specification"
+      >
+      </textarea>
+    </div>
+    <div class="form-group first t-right col_w">
+      <label for="isApproved"> IsApproved </label>
+      <input
+        type="checkbox"
+        class="form-check-input"
+        name="isApproved"
+        value="isApproved"
+        [(ngModel)]="product.isApproved"
+        [checked]="product.isApproved"
+        (change)="product.isApproved = !product.isApproved"
+      />
+    </div>
+
+    <div class="form-group first t-right col_w">
+      <label>Category Id</label>
+
+      <div class="mb-3">
+        <select
+          class="form-select"
+          name="categoryId"
+          [(ngModel)]="product.categoryId"
+  
+        >
+          
+
+          <option *ngFor="let item of categoryList" [ngValue]="item.id">
+            {{ item.name }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <!-- <div class="form-check" *ngFor="let role of roles">
+      <input
+        type="checkbox"
+        class="form-check-input"
+        value="{{ role.name }}"
+        [checked]="role.checked"
+        (change)="role.checked = !role.checked"
+        [disabled]="role.name === 'Admin' && user.userName === 'Admin'"
+      />
+      <label>{{ role.name }}</label>
+    </div> -->
+  </form>
+</div>
+
+<div class="edit-photos">
+  <app-photo-management
+    [photos]="product.photos"
+    [productId]="product.id"
+  ></app-photo-management>
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">
+    Cancel
+  </button>
+  <button
+    type="button"
+    class="btn btn-success"
+    [disabled]="!productForm.dirty && !productForm.valid"
+    (click)="updateProduct()"
+    form="productForm"
+  >
+    {{ isEdit ? "Add" : "Edit" }}
+  </button>
+</div>

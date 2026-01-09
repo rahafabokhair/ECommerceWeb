@@ -1,0 +1,227 @@
+<!-- Checkout Section Begin -->
+<section class="checkout spad">
+  <div class="container">
+    <form
+      [formGroup]="orderForm"
+      (ngSubmit)="onAddOrder()"
+      class="checkout__form"
+    >
+      <div class="row">
+        <div class="col-lg-8">
+          <h5>Billing detail</h5>
+          <div class="row">
+            <div class="form-group mb-2 checkout__form__input">
+              <p>Username <span>*</span></p>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="username"
+                [ngClass]="{
+                  'is-invalid': f['username'].errors && f['username'].touched
+                }"
+              />
+
+              <div *ngIf="f['username'].errors" class="invalid-feedback">
+                <div *ngIf="f['username'].errors['required']">
+                  Please choose a username
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-12">
+              <div class="form-group mb-2 checkout__form__input">
+                <p>Country <span>*</span></p>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="country"
+                  [ngClass]="{
+                    'is-invalid': f['country'].errors && f['country'].touched
+                  }"
+                />
+
+                <div *ngIf="f['country'].errors" class="invalid-feedback">
+                  <div *ngIf="f['country'].errors['required']">
+                    Please choose a country
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group mb-2 checkout__form__input">
+                <p>city <span>*</span></p>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="city"
+                  [ngClass]="{
+                    'is-invalid': f['city'].errors && f['city'].touched
+                  }"
+                />
+
+                <div *ngIf="f['city'].errors" class="invalid-feedback">
+                  <div *ngIf="f['city'].errors['required']">
+                    Please choose a city
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group mb-2 checkout__form__input">
+                <p>Address/Street <span>*</span></p>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="street"
+                  [ngClass]="{
+                    'is-invalid': f['street'].errors && f['street'].touched
+                  }"
+                />
+
+                <div *ngIf="f['street'].errors" class="invalid-feedback">
+                  <div *ngIf="f['street'].errors['required']">
+                    Please choose a street
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group mb-2 checkout__form__input">
+                <p>Country/State <span>*</span></p>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="state"
+                  [ngClass]="{
+                    'is-invalid': f['state'].errors && f['state'].touched
+                  }"
+                />
+
+                <div *ngIf="f['state'].errors" class="invalid-feedback">
+                  <div *ngIf="f['state'].errors['required']">
+                    Please choose a state
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+              <div class="form-group mb-2 checkout__form__input">
+                <p>Phone <span>*</span></p>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="phone"
+                  [ngClass]="{
+                    'is-invalid': f['phone'].errors && f['phone'].touched
+                  }"
+                />
+
+                <div *ngIf="f['phone'].errors" class="invalid-feedback">
+                  <div *ngIf="f['phone'].errors['required']">
+                    Please choose a phone
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+              <div class="form-group mb-2 checkout__form__input">
+                <p>PostalCode <span>*</span></p>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="postalCode"
+                  [ngClass]="{
+                    'is-invalid':
+                      f['postalCode'].errors && f['postalCode'].touched
+                  }"
+                />
+
+                <div *ngIf="f['postalCode'].errors" class="invalid-feedback">
+                  <div *ngIf="f['postalCode'].errors['required']">
+                    Please choose a postalCode
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-12">
+              <div class="form-group mb-2 checkout__form__input">
+                <p>Order notes <span>*</span></p>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="note"
+                  placeholder="Note about your order, e.g, special noe for delivery"
+                  [ngClass]="{
+                    'is-invalid': f['note'].errors && f['note'].touched
+                  }"
+                />
+
+                <div *ngIf="f['note'].errors" class="invalid-feedback">
+                  <div *ngIf="f['note'].errors['required']">
+                    Please choose a note
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="checkout__order">
+            <h5>Your order</h5>
+            <div class="checkout__order__product">
+              <ul>
+                <li>
+                  <span class="top__text">Product</span>
+                  <span class="top__text__right">Total</span>
+                </li>
+                @for (item of cart; track $index) {
+                <li>
+                  {{ $index + 1 }} . {{ item.name }}
+                  <span>${{ item.price * item.quantity }}</span>
+                </li>
+                }
+              </ul>
+            </div>
+            <div class="checkout__order__total">
+              <ul>
+                <!-- <li>Subtotal <span>$ 750.0</span></li> -->
+                <li>
+                  Total <span>{{ countTotalPrice() }} $</span>
+                </li>
+              </ul>
+            </div>
+            <div class="checkout__order__widget">
+              <!-- <label for="check-payment">
+                Cheque payment
+                <input type="checkbox" id="check-payment" formControlName="paymentWay" [value]="1" />
+                <span class="checkmark"></span>
+              </label>
+              <label for="paypal">
+                PayPal
+                <input type="checkbox" id="paypal" formControlName="paymentWay" [value]="2" />
+                <span class="checkmark"></span>
+              </label> -->
+              <label class="radio-inline ml-3 label-margin">
+                <input
+                  class="mr-3"
+                  type="radio"
+                  value="1"
+                  formControlName="paymentWay"
+                />   <span class="checkmark"></span>checkPayment
+              </label>
+              <label class="radio-inline ml-3">
+                <input
+                  class="mr-3"
+                  type="radio"
+                  value="2"
+                  formControlName="paymentWay"
+                /> <span class="checkmark"></span> paypal
+              </label>
+            </div>
+            <!--  -->
+            <button type="submit" class="site-btn" [disabled]="!orderForm.valid">Place order</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+<!-- Checkout Section End -->

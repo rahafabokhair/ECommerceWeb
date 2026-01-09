@@ -1,0 +1,105 @@
+<!-- Product Section Begin -->
+<section class="product spad">
+  <!-- <div class="search-container">
+    <input
+      type="text"
+      placeholder="Search products..."
+      [(ngModel)]="searchTerm"
+      (ngModelChange)="onSearchChange()"
+    />
+  </div> -->
+<div class="search-container">
+  <i class="fa fa-search search-icon"></i>
+  <input
+    type="text"
+    placeholder="Search products..."
+    [(ngModel)]="searchTerm"
+    (ngModelChange)="onSearchChange()"
+    class="search-input"
+  />
+</div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-4">
+        <div class="section-title">
+          <h4>New products</h4>
+        </div>
+      </div>
+    </div>
+    <tabset class="courseTabs" *ngIf="categories.length">
+      <!-- <div *ngIf="pagination.totalItems ">
+        <p>No Products yet</p>
+      </div> -->
+      <tab
+        *ngFor="let category of categories"
+        heading="{{ category.name }}"
+        [active]="category.id === activeCategoryId"
+        (selectTab)="onTabSelect(category.id)"
+      >
+        <div class="row property__gallery">
+          @for (item of products; track $index) {
+
+          <div
+            class="col-lg-3 col-md-4 col-sm-6 mix women"
+           
+          >
+            <div class="product__item">
+              <div class="product__item__pic set-bg">
+                <div class="product__item__pic set-bg"  [routerLink]="[item.id]">
+                  <img src="{{ item.photoURL ||defaultImg}}" alt=""  />
+                </div>
+                <!-- <img src="{{item.photoURL}}" alt=""> -->
+                <div class="label new">New</div>
+                <ul class="product__hover">
+                  <!-- <li>
+                    <a href="{{ item.photoURL }}" class="image-popup"
+                      ><span class="arrow_expand"></span
+                    ></a>
+                  </li> -->
+                  <!-- <li>
+                    <a href="#">
+                      <span><i class="fa fa-heart"></i></span>
+                    </a>
+                  </li> -->
+                  <li (click)="addToCart(item)" >
+                    <a >
+                      <span><i class="fa fa-shopping-bag"></i></span
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+              <div class="product__item__text">
+                <h6>
+                  <a href="#">{{ item.name }}</a>
+                </h6>
+                <div class="product__price">$ {{ item.price }}</div>
+              </div>
+            </div>
+          </div>
+          }
+        </div>
+      </tab>
+    </tabset>
+  </div>
+  <!-- end -->
+  <div
+    class="d-flex justify-content-center"
+    *ngIf="pagination.totalItems && products.length >= 0"
+  >
+    <pagination
+      [boundaryLinks]="true"
+      [totalItems]="pagination.totalItems"
+      [itemsPerPage]="pagination.itemsPerPage"
+      [(ngModel)]="pagination.currentPage"
+      (pageChanged)="pageChanged($event)"
+      previousText="&lsaquo;"
+      nextText="&rsaquo;"
+      firstText="&laquo;"
+      lastText="&raquo;"
+    >
+    </pagination>
+  </div>
+</section>
+<!-- Product Section End -->

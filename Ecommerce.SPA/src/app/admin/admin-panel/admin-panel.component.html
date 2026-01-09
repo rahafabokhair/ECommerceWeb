@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <tabset >
+      <tab heading="Order"   [active]="activeTab === 1"
+       (selectTab)="setActiveTab(1)">
+        <app-order-management ></app-order-management>
+      </tab>
+      <tab heading="User"  [active]="activeTab === 2"
+       (selectTab)="setActiveTab(2)">
+        <app-user-management></app-user-management>
+      </tab>
+      <!-- <tab heading="Photo">
+        <app-photo-management ></app-photo-management>
+      </tab> -->
+      <tab heading="Product"  [active]="activeTab === 3"
+       (selectTab)="setActiveTab(3)">
+        <app-product-management></app-product-management>
+      </tab>
+    </tabset>
+  </div>
+</div>

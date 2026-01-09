@@ -1,0 +1,59 @@
+<button class="btn btn-info" (click)="editProductModal(null)">
+  Add product
+</button>
+
+<div class="container">
+  <table class="table">
+    <tr>
+      <th>product ID</th>
+      <th>Username</th>
+      <th>Price</th>
+      <th>Brand</th>
+      <th>Photo</th>
+      <th></th>
+    </tr>
+    @for (product of products; track $index) {
+
+    <tr>
+      <td>{{ product.id }}</td>
+      <td>{{ product.name }}</td>
+      <td>{{ product.price }}</td>
+      <td>{{ product.brand }}</td>
+     
+      <td> <img [src]="product.photoURL||defaultImg" alt="" width="50" height="50" /></td>
+      <td>
+        <button class="btn btn-info m-2" (click)="editProductModal(product)">
+          Edit
+        </button>
+        <button class="btn btn-danger m-2" (click)="deleteProduct(product.id)">
+          delete
+        </button>
+        <a
+          class="btn btn-info"
+          [routerLink]="['/photo', product.id]"
+        >
+          photo Management
+        </a>
+      </td>
+    </tr>
+    }
+  </table>
+
+  <div
+    class="d-flex justify-content-center"
+    *ngIf="pagination?.totalItems && products.length >= 0"
+  >
+    <pagination
+      [boundaryLinks]="true"
+      [totalItems]="pagination.totalItems"
+      [itemsPerPage]="pagination.itemsPerPage"
+      [(ngModel)]="pagination.currentPage"
+      (pageChanged)="pageChanged($event)"
+      previousText="&lsaquo;"
+      nextText="&rsaquo;"
+      firstText="&laquo;"
+      lastText="&raquo;"
+    >
+    </pagination>
+  </div>
+</div>

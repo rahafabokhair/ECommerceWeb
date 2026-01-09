@@ -1,0 +1,20 @@
+<div class="rating-container">
+  <!-- <h4>Average Rating: {{ averageRating }} ⭐</h4>
+
+    <ngx-star-rating formControlName="rating" [id]="'rating'"></ngx-star-rating>
+
+  <div class="ratings-list" *ngIf="ratings.length > 0">
+    <p *ngFor="let r of ratings">
+      ⭐ {{ r.rating }} - {{ r.comment || 'No comment' }}
+    </p>
+  </div> -->
+
+  <ngx-stars
+    [initialStars]="rating"
+    (ratingOutput)="onUserRate($event)"
+    [maxStars]="5"
+    [size]="2"
+    [readonly]="false"
+  >
+  </ngx-stars>
+</div>

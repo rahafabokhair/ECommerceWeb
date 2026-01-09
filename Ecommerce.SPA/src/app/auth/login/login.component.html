@@ -1,0 +1,53 @@
+<section class="login-bg">
+  <div class="container">
+    <div class="col-md-12 mt-4 boldf white tcenter">
+      <h4>Login</h4>
+      <p>Welcome In Ecommerce App</p>
+    </div>
+    <div class="container tcenter main-cont">
+      <div class="col-md-6 mt-4 second-cont m-auto">
+        <div class="col-md-10 m-auto">
+        
+          <form #loginForm="ngForm" (ngSubmit)="loginForm.valid && onLogin(loginForm)">
+            <div class="form-group first t-right col_w">
+              <!-- <label for="username"> username </label> -->
+              <input
+                dir="rtl"
+                class="form-control me-2"
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Name"
+                ngModel
+                required
+              />
+            </div>
+            <div class="form-group last mb-4 t-right col_w">
+              <!-- <label for="password">password</label> -->
+              <input
+                dir="rtl"
+                type="password"
+                class="form-control me-2"
+                id="password"
+                name="password"
+                placeholder="Password"
+                ngModel
+                required
+                minlength="6"
+              />
+            </div>
+            <button class="btn btn-block btn-reg" type="submit" [disabled]="!loginForm.valid">
+               LogIn
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12 mt-4 tcenter">
+      <p class="">
+        no account
+        <a routerLink="/register"><span class="forgetPw_pink">Register Now</span></a>
+      </p>
+    </div>
+  </div>
+</section>

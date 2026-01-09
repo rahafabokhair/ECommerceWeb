@@ -1,0 +1,76 @@
+
+
+<!-- Header Section Begin -->
+<header class="header">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xl-3 col-lg-2">
+        <div class="header__logo">
+          <a href="./index.html" class="text-decoration-none d-block">
+            <h1 class="m-0 logo-text">
+              <span class="text-primary-logo">E</span>commerceApp
+            </h1>
+          </a>
+        </div>
+      </div>
+      <div class="col-xl-6 col-lg-7">
+        <nav class="header__menu">
+          <ul>
+            <li class="active"><a href="./index.html">Home</a></li>
+            <li><a [routerLink]="['products']" [queryParams]="{cate:'Women'}">Women’s</a></li>
+            <li><a [routerLink]="['products']" [queryParams]="{cate:'Men'}">Men’s</a></li>
+            <li><a [routerLink]="['products']" [queryParams]="{cate:'Kids'}">Kids</a></li>
+
+            <!-- <li><a href="./shop.html">Shop</a></li>
+           
+            <li><a href="./blog.html">Blog</a></li> -->
+
+            <li *appHasRole="['Admin', 'Moderator']" routerLinkActive="active">
+              <a [routerLink]="['admin']">admin</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="col-lg-3">
+        <div class="header__right">
+          <div class="header__right__auth">
+            <div *ngIf="!loggedin(); else notloggedin">
+              <a routerLink="login">Login</a>
+              <a routerLink="register">Register</a>
+            </div>
+            <ng-template #notloggedin>
+              <a (click)="logout()">Logout</a>
+            </ng-template>
+            <!-- <div *ngIf="loggedin()">
+         
+            </div> -->
+          </div>
+          <ul class="header__right__widget">
+            <li><span class="icon_search search-switch"></span></li>
+            <!-- <li>
+              <a href="#"
+                >
+                <span class="icon_heart_alt">
+                  <i class="fa fa-heart"></i>
+                </span>
+                <div class="tip">2</div>
+              </a>
+            </li> -->
+            <li>
+              <a routerLink="cart"
+                ><span class="icon_bag_alt"
+                  ><i class="fa fa-shopping-bag"></i>
+                </span>
+                <div class="tip">{{ carruntItemVal }}</div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="canvas__open">
+      <i class="fa fa-bars"></i>
+    </div>
+  </div>
+</header>
+<!-- Header Section End -->

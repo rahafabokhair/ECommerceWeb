@@ -1,0 +1,242 @@
+.login-bg {
+  /* background: url("../../../../public/login.png"); */
+  background-color: #fff;
+  padding: 70px 0;
+  /* margin-top: 100px; */
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+.login-bg .main-cont {
+  min-height:260px;
+}
+.number-div input {
+  text-align: right;
+  border: 1px solid #dadada;
+  background: #7572a2;
+  padding: 7px 20px 7px 20px;
+  font-size: 13px;
+  border-radius: 5px;
+  direction: rtl;
+  color: #fff;
+  flex-grow: 1;
+  margin: 5px 0 5px 5px;
+
+}
+.labels{
+  margin-top: 5px;
+  display: block;
+  text-align: right;
+  color: #fff;
+  font-size: 11px;
+}
+.number-div{
+  margin-bottom: 1rem;
+}
+.number-div input::placeholder {
+  color: #fff !important;
+}
+.number-div .select-arrow::after {
+  font-size: 14px;
+  top: 13px !important;
+  left: 8px !important;
+  color: #fff;
+}
+.number-div select {
+  border: 1px solid #dadada;
+  background: #7572a2;
+  padding: 7px 20px 7px 20px;
+  font-size: 13px;
+  border-radius: 5px;
+  color: #fff;
+}
+.btn-s {
+  border-radius: 26px;
+  border: none;
+  padding: 7px;
+  color: #fff;
+  text-align: right;
+  transition: all 0.3s ease-in-out;
+  transform: scale(1);
+  font-size: 10px;
+  border: 1px solid var(--red);
+}
+.login-h {
+  color: #3b3e51;
+  font-family: "NeoSansMedium";
+}
+.btn-s:hover {
+  color: #fff;
+  box-shadow: 1px 1px 8px #747474;
+  transform: scale(1.02);
+}
+
+.active {
+  background-color: var(--red);
+}
+.boldf {
+  font-family: NeoSansBold;
+}
+.white {
+  color: #fff;
+}
+.Sign-btn-icon {
+  position: absolute;
+  top: 9px;
+  right: 12px;
+  color: #fff;
+  font-size: 15px;
+}
+
+.input-s {
+  background-color: #ffffff38;
+  border-radius: 3px;
+}
+.col_w {
+  text-align: left;
+  margin-top: 20px;
+}
+.col_w label {
+  color: #111111;
+}
+
+.btn-reg {
+  background-color: var(--red);
+  font-size: 13px;
+  padding: 10px 15px;
+  color: #fff;
+}
+.btn-reg:hover {
+  color: #fff;
+  box-shadow: 1px 1px 8px #747474;
+  transform: scale(1.02);
+}
+.forgetPw_white {
+  border-bottom: 1px solid #fff;
+  color: #fff;
+}
+.forgetPw_white:hover {
+  color: var(--red);
+  border-bottom: 1px solid var(--red);
+}
+.forgetPw_pink {
+  color: var(--red);
+ 
+}
+.forgetPw_pink:hover {
+  /* color:#111111; */
+  /* border-bottom: 1px solid #fff; */
+   border-bottom: 1px solid var(--red);
+}
+
+.tcenter {
+  text-align: center;
+}
+.main-cont {
+  display: block ruby;
+}
+.second-cont {
+  text-align: center;
+  /* background-color: #fffcfc; */
+  border-radius: 35px;
+  padding: 26px;
+  box-shadow: 1px 1px 8px #d6d6d6;
+}
+.btn-span {
+  padding-right: 24px !important;
+  display: block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  direction: rtl;
+  font-size: 11px;
+}
+
+.form-group select,
+.form-group input,
+.form-group textarea {
+  text-align: left;
+  border: 1px solid #dadada;
+  height: 50px;
+}
+.form-control {
+  font-size: 16px !important;
+  margin: 6px 0;
+}
+
+.form-control::placeholder {
+  color: #616161 !important;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+}
+
+label[for="favcity"] {
+  position: relative;
+  display: block;
+  /* width: 400px; */
+  overflow: hidden;
+  cursor: pointer;
+}
+
+label[for="favcity"]::after {
+  content: "\f0d7";
+  font-family: "Font Awesome\ 5 Free";
+  position: absolute;
+  /* left: 12px; */
+  left: -5px;
+  top: 13px;
+  width: 40px;
+  height: 100%;
+  display: block;
+  color: #fff;
+  pointer-events: none;
+  font-size: 27px;
+}
+
+label[for="favcity"] select {
+  border: 1px solid #dadada;
+  background: #7572a2;
+  padding: 7px 20px 7px 20px;
+  width: 100%;
+  font-size: 13px;
+  border-radius: 5px;
+  direction: rtl;
+  color: #fff;
+}
+
+label[for="favcity"] select::-ms-expand {
+  display: none;
+}
+
+label[for="favcity"].ie9 select {
+  width: 110%;
+}
+
+label[for="favcity"] select:focus {
+  outline: 1px dotted #a9a9a9;
+}
+/* label {
+      margin-bottom:0 !important;
+  } */
+.header-p {
+  font-size: 14px;
+}
+.title-p {
+  font-size: 20px;
+  color: #3b3e51;
+}
+.fz-12 {
+  font-size: 12px;
+}

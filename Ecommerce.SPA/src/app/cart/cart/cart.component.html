@@ -1,0 +1,84 @@
+<!-- Shop Cart Section Begin -->
+<section class="shop-cart spad">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <p *ngIf="cart.length <= 0">cart is empty</p>
+        <div class="shop__cart__table" *ngIf="cart.length > 0">
+          <table>
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (item of cart; track $index) {
+              <tr>
+                <td class="cart__product__item">
+                  <img [src]="item.photoURL" width="50" height="50"  alt="" />
+                  <div class="cart__product__item__title">
+                    <h6>{{ item.name }}</h6>
+                
+                  </div>
+                </td>
+                <td class="cart__price">{{ item.price }} $</td>
+                <td class="cart__quantity">
+                  <div class="pro-qty">
+                    <input class="form-control" type="text" value="{{ item.quantity }}" />
+                  </div>
+                </td>
+                <td class="cart__total">{{ item.quantity * item.price }}</td>
+                <td class="cart__close" (click)="removeItemFromCart(item.id)">
+                  <span>
+                    <i class="fa fa-close"></i>
+                  </span>
+                </td>
+              </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="cart__btn">
+                        <a >Continue Shopping</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="cart__btn update__btn">
+                        <a> Update cart</a>
+                    </div>
+                </div>
+            </div> -->
+    <div class="row">
+      <!-- <div class="col-lg-6">
+                    <div class="discount__content">
+                        <h6>Discount codes</h6>
+                        <form action="#">
+                            <input type="text" placeholder="Enter your coupon code">
+                            <button type="submit" class="site-btn">Apply</button>
+                        </form>
+                    </div>
+                </div> -->
+      <div class="col-lg-4" *ngIf="cart.length > 0">
+        <div class="cart__total__procced">
+          <h6>Cart total</h6>
+          <ul>
+            <!-- <li>Subtotal <span>$ 750.0</span></li> -->
+            <li>
+              Total <span>$ {{ total }} </span>
+            </li>
+          </ul>
+          <a routerLink="/checkout" class="primary-btn">Proceed to checkout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Shop Cart Section End -->

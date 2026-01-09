@@ -1,0 +1,41 @@
+<div class="container-fluid">
+  <table class="table">
+    <tr>
+      <th>Order ID</th>
+      <th>Total Price</th>
+      <th>PaymentWay</th>
+      <th>Date</th>
+      <th>Total Amount</th>
+      <th>Country</th>
+      <th>Street</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Postal Code</th>
+      <th>phone</th>
+      <th>orderStatus</th>
+      <th></th>
+    </tr>
+    @for (order of orders; track $index) {
+    <tr>
+      <td>{{ order.id }}</td>
+      <td>{{ order.totalPrice }} $</td>
+      <td>{{ order.paymentWay | paymentWay }}</td>
+      <td>{{ order.orderDate | date }}</td>
+      <td>{{ order.totalAmount }}</td>
+      <td>{{ order.country }}</td>
+      <td>{{ order.street }}</td>
+      <td>{{ order.city }}</td>
+      <td>{{ order.state }}</td>
+      <td>{{ order.postalCode }}</td>
+      <td>{{ order.phone }}</td>
+      <td>{{ order.orderStatusId | orderStatus }}</td>
+      <td>
+        <button
+          class="btn btn-danger"
+          (click)="updateOrderStatus(order)"
+        >Update Status</button>
+      </td>
+    </tr>
+    }
+  </table>
+</div>

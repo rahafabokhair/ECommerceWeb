@@ -1,0 +1,85 @@
+.container {
+  /* max-width: 900px; */
+  margin: 40px auto;
+  padding:10px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  color: #333;
+}
+
+.table th, 
+.table td {
+  padding: 10px 10px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.table th {
+  background-color: #f9fafb;
+  color: #374151;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.table tr:hover {
+  background-color: #f3f4f6;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-danger{
+  background-color: #820000;
+  color: white;
+}
+
+.btn-info:hover {
+  background-color: #2563eb;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
+}
+@media (max-width: 640px) {
+  .table, .table thead, .table tbody, .table th, .table td, .table tr {
+    display: block;
+  }
+
+  .table tr {
+    margin-bottom: 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+  .table th {
+    display: none;
+  }
+
+  .table td {
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+  }
+
+  .table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #4b5563;
+  }
+}

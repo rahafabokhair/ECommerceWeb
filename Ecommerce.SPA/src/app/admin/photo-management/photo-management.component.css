@@ -1,0 +1,125 @@
+
+ /* General Container Styling */
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Photo Gallery */
+.col-sm-3 {
+  margin-bottom: 15px;
+}
+
+.img-thumbnail {
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.img-thumbnail:hover {
+  transform: scale(1.05);
+}
+
+/* Button Styling */
+.btn-style {
+  margin-top: 8px;
+}
+
+.btn {
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Drop Zone Styling */
+.my-drop-zone {
+  border: 2px dashed #007bff;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  color: #007bff;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  background-color: #f8f9fa;
+}
+
+.my-drop-zone:hover {
+  background-color: #e9ecef;
+  cursor: pointer;
+}
+
+/* Table Styling */
+.table {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table th {
+  background-color: #007bff;
+  color: white;
+}
+
+.table td {
+  vertical-align: middle;
+}
+
+/* Progress Bar */
+.progress {
+  height: 8px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  background-color: #28a745;
+}
+
+/* Buttons in Upload List */
+.btn-xs {
+  font-size: 12px;
+  padding: 5px 8px;
+  border-radius: 5px;
+}
+
+/* Upload Control Buttons */
+.btn-s {
+  font-size: 14px;
+  padding: 8px 12px;
+  margin: 5px;
+}
+.nv-file-over{
+  border:dotted 3px red;
+}
+input[type=file]{
+  color: transparent;
+}
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .col-md-3,
+  .col-md-9 {
+    flex: 100%;
+    max-width: 100%;
+  }
+
+  .btn {
+    width: 100%;
+    margin-top: 5px;
+  }
+
+  .table {
+    font-size: 14px;
+  }
+}
+
+
+ 
